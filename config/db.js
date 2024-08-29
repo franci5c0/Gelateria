@@ -26,7 +26,7 @@ if(err) {
     console.error('Erro ao conectar ao banco de dados:', err);//exibe mensagem de erro
     return;
         }
-        console.log('Conectado ao banco de dados MySQL');//exibe mensagem de sucesso
+        console.log(`Conectado ao banco de dados MySQL ${process.env.DB_NAME}`);//exibe mensagem de sucesso
     }
 );
 
