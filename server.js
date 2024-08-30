@@ -12,19 +12,20 @@ const express = require('express');
 const cors = require ('cors'); //importa o pacote cors para permitir requisições de diferentes origens
 const bodyParser = require('body-parser') //importa o pacote body-parser para analisar o corpo das requisições
 
-//PEDIDOS--------------//
+//conectando o banco de dados
 const db = require('./config/db');//importa a conexão com o banco de dados
 
+//PEDIDOS--------------//
 const pedidosRoutes = require('./routes/pedidos'); //importa as rotas dos pedidos
 
-//SABORES-------------//
-const saboresRoutes = require('./routes/sabores'); //importa as rotas dos sabores
-
-//SABORES-------------//
+//CADASTRO-------------//
 const cadastroRoutes = require('./routes/cadastro'); //importa as rotas do cadastro
 
-//NOVO PEDIDO-------------//
-const novopedidoRoutes = require('./routes/novopedido'); //importa as rotas do novo pedido
+//SABORES--------------//
+const saboresRoutes = require('./routes/sabores'); //importa as rotas dos sabores
+
+//CARRINHO------------//
+const carrinhoRoutes = require('./routes/carrinho'); //importa as rotas do carrinho
 
 //inicializa uma nova aplicação express
 const app = express();
@@ -35,15 +36,15 @@ app.use(bodyParser.json());//configura o body-parser para analisar requisições
 
 //usar as rotas de transações para todas as requisições que começam com /api/pedidos
 app.use('/api/pedidos', pedidosRoutes)
-
-//usar as rotas de transações para todas as requisições que começam com /api/sabores
-app.use('/api/sabores', saboresRoutes)
+ 
+////usar as rotas de transações para todas as requisições que começam com /api/carrinho
+app.use('/api/carrinho', carrinhoRoutes)
 
 //usar as rotas de transações para todas as requisições que começam com /api/cadastro
 app.use('/api/cadastro', cadastroRoutes)
 
-//requisição de novo pedido 
-app.use('/api/novopedido', novopedidoRoutes)
+//usar as rotas de transações para todas as requisições que começam com /api/sabores
+app.use('/api/sabores', saboresRoutes)
 
 //rota inicial para testar servidor
 app.get('/',(req, res) => {
