@@ -46,9 +46,6 @@ const addPedidos = (req, res) => {
     });
 };
 
-
-
-
 //--CARRINHO--//
 
 //função para obter todos os pedidos
@@ -101,9 +98,9 @@ const addCarrinho = (req, res) => {
         getAllPedidos,
         addPedidos,
         addCarrinho,
-        deleteCarrinho,
         getAllCarrinho,
-        deletePedidos
+        deletePedidos,
+        deleteCarrinho
         };
 
 

@@ -25,7 +25,10 @@ const cadastroRoutes = require('./routes/cadastro'); //importa as rotas do cadas
 const saboresRoutes = require('./routes/sabores'); //importa as rotas dos sabores
 
 //CARRINHO------------//
-const carrinhoRoutes = require('./routes/carrinho'); //importa as rotas do carrinho
+const carrinhoRoutes = require('./routes/pedidos'); //importa as rotas do carrinho
+
+//PEDIDO RECENTE------------//
+//const pedidorecenteRoutes = require('./routes/')
 
 //inicializa uma nova aplicação express
 const app = express();
