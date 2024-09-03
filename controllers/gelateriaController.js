@@ -15,7 +15,7 @@ const addCadastro = (req, res) => {
           res.status(500).send('Erro ao cadastrar'); 
           return; 
         } 
-        res.status(201).send('Cadastro adicionado com sucessos'); 
+        res.status(201).send('Cadastro adicionado com sucesso'); 
       } 
     ); 
   }; 
@@ -50,9 +50,6 @@ const getAllCadastro = (req, res) => {
 };
 
 
-
-
-
 //SABORES//
 
 //função para obter todos os pedidos
@@ -69,7 +66,6 @@ const getAllSabores = (req, res) => {
   };
 
   
-
 
 //--PEDIDOS--//
 
@@ -152,6 +148,8 @@ const addCarrinho = (req, res) => {
     ); 
   }; 
 
+
+
     //função para deletar um pedido
     const deleteCarrinho = (req, res) => {  
         const { id } = req.params;
@@ -166,6 +164,55 @@ const addCarrinho = (req, res) => {
         });
     };
     
+    //PAGAMENTO//
+
+    //função para obter todos os pedidos
+const getAllPagamento = (req, res) => {
+  db.query('SELECT * FROM pagamento', (err, results) => {
+
+      if (err) {
+          console.error('Erro ao obter as formas de pagamento')
+          res.status(500).send('Erro ao obter as formas de pagamento');
+          return;
+      }
+      res.json(results);
+  });
+};
+
+
+// Função para adicionar um novo pedido
+const addPagamento = (req, res) => { 
+  const { id, PIX} = req.body; 
+  db.query( 
+    'INSERT INTO pagamento (id, PIX) VALUES (?, ?)', 
+    [id, PIX], 
+    (err, results) => { 
+      if (err) { 
+        console.error('Erro ao adicionar forma de pagamento:', err); 
+        res.status(500).send('Erro ao adicionar Forma de pagamento'); 
+        return; 
+      } 
+      res.status(201).send('Forma de pagamento adicionada com sucessos'); 
+    } 
+  ); 
+}; 
+
+
+
+  //função para deletar um pedido
+  const deletePagamento = (req, res) => {  
+      const { id } = req.params;
+      db.query('DELETE FROM pagamento WHERE id = ?', [id], (err, results) => {
+  
+          if(err) {
+              console.error('Erro ao deletar a forma de pagamento', err);
+              res.status(500).send('Erro ao deletar a forma de pagamento');
+              return;
+          }
+          res.send('Forma de pagamento deletada com sucesso')
+      });
+  };
+  
 
 
     module.exports = {
@@ -176,6 +223,9 @@ const addCarrinho = (req, res) => {
         addPedidos,
         addCarrinho,
         getAllCarrinho,
+        addPagamento,
+        getAllPagamento,
+        deletePagamento,
         deletePedidos,
         deleteCarrinho,
         deleteCadastro

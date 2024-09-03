@@ -13,7 +13,7 @@ router.get('/', gelateriaController.getAllPedidos);
 router.post('/', gelateriaController.addPedidos);
 
 //definindo uma rota para deletar um pedido
-router.delete('/:id', gelateriaController.deletePedidos)
+router.delete('/:id', gelateriaController.deletePedidos);
 
 
 //exportando o roteador

@@ -27,8 +27,8 @@ const saboresRoutes = require('./routes/sabores'); //importa as rotas dos sabore
 //CARRINHO------------//
 const carrinhoRoutes = require('./routes/carrinho'); //importa as rotas do carrinho
 
-//PEDIDO RECENTE------------//
-//const pedidorecenteRoutes = require('./routes/')
+//PAGAMENTO------------//
+const pagamentoRoutes = require('./routes/pagamento'); //importa as rotas do pagamento
 
 //inicializa uma nova aplicação express
 const app = express();
@@ -48,6 +48,9 @@ app.use('/api/cadastro', cadastroRoutes)
 
 //usar as rotas de transações para todas as requisições que começam com /api/sabores
 app.use('/api/sabores', saboresRoutes)
+
+//usar as rotas de transações para todas as requisições que começam com /api/pagamento
+app.use('/api/pagamento', pagamentoRoutes)
 
 //rota inicial para testar servidor
 app.get('/',(req, res) => {
