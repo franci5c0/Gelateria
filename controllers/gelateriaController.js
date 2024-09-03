@@ -1,21 +1,74 @@
 const db = require('../config/db'); //importa a conexão com o banco de dados
 
 
+//CADASTRO//
+
+// Função para adicionar um novo cadastro
+const addCadastro = (req, res) => { 
+    const { id, cliente, sobrenome, Email, CPF, endereço} = req.body; 
+    db.query( 
+      'INSERT INTO cadastro (id, cliente, sobrenome, Email, CPF, endereço) VALUES (?, ?, ?, ?, ?, ?)', 
+      [id, cliente, sobrenome, Email, CPF, endereço], 
+      (err, results) => { 
+        if (err) { 
+          console.error('Erro ao cadastrar:', err); 
+          res.status(500).send('Erro ao cadastrar'); 
+          return; 
+        } 
+        res.status(201).send('Cadastro adicionado com sucessos'); 
+      } 
+    ); 
+  }; 
+
+
+//função para obter todos os cadastros
+const getAllCadastro = (req, res) => {
+    db.query('SELECT * FROM cadastro', (err, results) => {
+  
+        if (err) {
+            console.error('Erro ao obter o histórico de cadastros')
+            res.status(500).send('Erro ao obter o histórico de cadastros');
+            return;
+        }
+        res.json(results);
+    });
+  };
+
+
+  //função para deletar um cadastro
+ const deleteCadastro = (req, res) => {  
+    const { id } = req.params;
+    db.query('DELETE FROM cadastro WHERE id = ?', [id], (err, results) => {
+
+        if(err) {
+            console.error('Erro ao deletar o cadastro', err);
+            res.status(500).send('Erro ao deletar o cadastro');
+            return;
+        }
+        res.send('Cadastro deletado com sucesso')
+    });
+};
+
+
+
+
+
 //SABORES//
 
 //função para obter todos os pedidos
 const getAllSabores = (req, res) => {
-  db.query('SELECT * FROM sabores', (err, results) => {
+    db.query('SELECT * FROM sabores', (err, results) => {
+  
+        if (err) {
+            console.error('Erro ao obter os pedidos')
+            res.status(500).send('Erro ao obter os pedidos');
+            return;
+        }
+        res.json(results);
+    });
+  };
 
-      if (err) {
-          console.error('Erro ao obter os pedidos')
-          res.status(500).send('Erro ao obter os pedidos');
-          return;
-      }
-      res.json(results);
-  });
-};
-
+  
 
 
 //--PEDIDOS--//
@@ -115,31 +168,17 @@ const addCarrinho = (req, res) => {
     
 
 
-    //CADASTRO//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     module.exports = {
+        addCadastro,
+        getAllCadastro,
         getAllSabores,
         getAllPedidos,
         addPedidos,
         addCarrinho,
         getAllCarrinho,
         deletePedidos,
-        deleteCarrinho
-        
+        deleteCarrinho,
+        deleteCadastro
         };
 
 
