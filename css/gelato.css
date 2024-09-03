@@ -1,0 +1,34 @@
+* {
+margin: 0;
+box-sizing: border-box;
+}
+
+/*CORES*/
+root {
+
+--MediumVioletRed: #FF1493;
+--HotPink: #FF69B4;
+--Sienna: #A0522D;
+--MediumAquamarine: #66CDAA;
+--Chocolate: #D2691E;
+--Brown: #A52A2A;
+--SandyBrown: #F4A460;
+--Goldenrod: #DAA520;
+}
+
+/*CORPO*/
+body {
+
+background-repeat: no-repeat;
+margin: 0;
+padding: 0;
+}
+
+/*TOPO*/
+.cabeçalho {
+width: 100%;
+background-image: url(/css/plano-de-fundo-topo.jpeg);
+
+}
+
+
