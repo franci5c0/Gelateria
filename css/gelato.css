@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Playwrite+CU:wght@100..400&display=swap');
+
+* {
+margin: 0;
+box-sizing: border-box;
+}
+
+/*CORES*/
+root {
+
+--MediumVioletRed: #FF1493;
+--HotPink: #FF69B4;
+--Sienna: #A0522D;
+--MediumAquamarine: #66CDAA;
+--Chocolate: #D2691E;
+--Brown: #A52A2A;
+--SandyBrown: #F4A460;
+--Goldenrod: #DAA520;
+}
+
+
+
+
+h1 {
+text-transform: uppercase;
+text-align: center;
+font-family: "Bungee Tint";
+}
+
+hr {
+margin-bottom: 5px;
+border: 1px solid #A0522D;
+}
+
+/*TOPO*/
+.cabeçalho {
+width: 100%;
+background-image: url(/css/imperial\ gelato.png);
+background-size: 100%;
+background-position: 0px -420px;
+background-repeat: no-repeat;
+height: 200px;
+}
+
+.logo {
+width: 250px;
+height: 250px;
+position: relative;
+left: 847px;
+bottom: 20px;
+}
+
+/*CORPO*/
+body {
+background-repeat: no-repeat;
+margin: 0;
+padding: 0;
+background-image: url(/css/cor-fundo-corpo-3.jpeg);
+background-size: 100%;
+background-position: 0px 30px;
+height: 100%;
+width: 100%;
+}
+
+.ul {
+list-style: none;
+}
+
+.lista-carrinho img {
+width: 80px;
+}
