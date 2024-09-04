@@ -1,3 +1,4 @@
+
 const express = require('express'); //importa o framework express
 
 const router = express.Router(); //cria um novo roteador
@@ -14,7 +15,3 @@ router.post('/', gelateriaController.addPedidos);
 
 //definindo uma rota para deletar um pedido
 router.delete('/:id', gelateriaController.deletePedidos);
-
-
-//exportando o roteador
-module.exports = router;

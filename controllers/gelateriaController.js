@@ -1,3 +1,4 @@
+
 const db = require('../config/db'); //importa a conexão com o banco de dados
 
 
@@ -230,6 +231,7 @@ const addPagamento = (req, res) => {
         deleteCarrinho,
         deleteCadastro
         };
+
 
 
 

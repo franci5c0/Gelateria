@@ -1,3 +1,4 @@
+
 //importar a biblioteca mysql2 e criar a conexão com o banco de dados
 const mysql = require('mysql2'); //importa o pacote mysql2 para conectar ao banco de dados
 
@@ -29,4 +30,3 @@ if(err) {
     }
 );
 
-module.exports = db //exporta a conexão para ser usada em outros arquivos
